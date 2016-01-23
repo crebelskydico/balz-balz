@@ -25,8 +25,6 @@ var autoprefixerBrowsers = [
     'bb >= 10'
 ];
 
-console.log($.util.env.type);
-
 gulp.task('scripts', function() {
     return gulp.src(webpackConfig.entry)
         .pipe($.webpackStream(webpackConfig))
