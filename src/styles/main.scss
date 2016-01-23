@@ -1,0 +1,44 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: normal;
+    &.black {
+        background-color: #1A1919;
+        color: #fff;
+    }
+    &.white {
+        background-color: #fff;
+        color: #1A1919;
+    }
+}
+img {
+    max-width: 100%;
+}
+
+p {
+    font-size: 20px;
+}
+
+.Aligner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.Aligner-item--top {
+    align-self: flex-start;
+}
+
+.Aligner-item--bottom {
+    align-self: flex-end;
+}
+
+.width-50 {
+    max-width: 80%;
+}
+
+.width-25 {
+    max-width: 50%;
+}
