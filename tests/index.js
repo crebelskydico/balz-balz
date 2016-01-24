@@ -15,7 +15,6 @@ describe('Integration tests', function() {
     Backbone.history.start();
 
     let $app = $('#main');
-    console.log($app.text());
 
     describe('Coming Soon Page simple testing', function() {
         it('should render logo', function() {
