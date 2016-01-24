@@ -1,56 +1,58 @@
 var webpack = require('webpack');
 
 module.exports = function(config) {
-  config.set({
+    config.set({
 
-  basePath: '',
+        basePath: '',
 
-  frameworks: ['mocha'],
+        frameworks: ['mocha'],
 
-  files: [
-    'tests/index.js'
-  ],
+        files: [
+            'tests/index.js'
+        ],
 
-  preprocessors: {
-    'tests/*': ['webpack']
-  },
+        preprocessors: {
+            'tests/*': ['webpack']
+        },
 
-  webpack: {
-    module: {
-      loaders : [
-          { test: /\.js?$/, exclude: /node_modules/, loader: 'babel-loader' }
-      ]
-    }
-  },
+        webpack: {
+            module: {
+                loaders: [{
+                    test: /\.js?$/,
+                    exclude: /node_modules/,
+                    loader: 'babel-loader'
+                }]
+            }
+        },
 
-  webpackMiddleware: {
-    stats: {
-      colors: true
-    },
-    quiet: true
-  },
+        webpackMiddleware: {
+            stats: {
+                colors: true
+            },
+            quiet: true
+        },
 
-  reporters: ['progress'],
+        reporters: ['progress'],
 
-  port: 9876,
+        port: 9876,
 
-  colors: true,
+        colors: true,
 
-  logLevel: config.LOG_DISABLE,
+        logLevel: config.LOG_DISABLE,
 
-  autoWatch: false,
+        autoWatch: false,
 
-  browsers: ['Chrome'],
+        browsers: ['PhantomJS'],
 
-  captureTimeout: 60000,
+        captureTimeout: 60000,
 
-  singleRun: true,
+        singleRun: true,
 
-  plugins: [
-    require('karma-webpack'),
-    require('karma-mocha'),
-    require('karma-spec-reporter'),
-    require('karma-chrome-launcher')
-  ]
-  });
+        plugins: [
+            require('karma-webpack'),
+            require('karma-mocha'),
+            require('karma-spec-reporter'),
+            require('karma-phantomjs-launcher')
+        ]
+    });
 };

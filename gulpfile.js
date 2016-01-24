@@ -79,10 +79,17 @@ gulp.task('static', function(cb) {
         .pipe(gulp.dest(dist + 'static/'));
 });
 
+gulp.task('lint', function () {
+    return gulp.src(['src/**/*.js','!node_modules/**'])
+        .pipe($.eslint())
+        .pipe($.eslint.format())
+        .pipe($.eslint.formatEach('compact', process.stderr));
+});
+
 gulp.task('watch', function() {
     gulp.watch(src + 'styles/*.scss', ['styles']);
     gulp.watch(src + 'index.html', ['html']);
-    gulp.watch([src + 'app/**/*.js', src + 'app/**/*.hbs'], ['scripts']);
+    gulp.watch([src + 'app/**/*.js', src + 'app/**/*.hbs'], ['lint', 'scripts']);
 });
 
 gulp.task('clean', function(cb) {
