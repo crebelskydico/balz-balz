@@ -1,11 +1,12 @@
-var {
-    Router
-} = Backbone;
 import $ from 'jquery';
 import {
     AppView
 }
 from './views/app';
+
+var {
+    Router
+} = Backbone;
 
 export class MainRouter extends Router {
     constructor() {
