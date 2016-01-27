@@ -9,6 +9,9 @@ var environment = $.util.env.type || 'development';
 var isProduction = environment === 'production';
 var webpackConfig = require('./webpack.config.js')[environment];
 
+var critical = require('critical');
+
+
 var port = $.util.env.port || 1337;
 var src = 'src/';
 var dist = 'dist/';
@@ -87,8 +90,20 @@ gulp.task('root-icons', function(cb) {
         .pipe(gulp.dest(dist));
 });
 
-gulp.task('lint', function () {
-    return gulp.src(['src/**/*.js','!node_modules/**'])
+gulp.task('critical', function(cb) {
+    critical.generate({
+        inline: true,
+        base: 'dist/',
+        src: 'index.html',
+        dest: 'dist/index.html',
+        minify: true,
+        width: 320,
+        height: 480
+    });
+});
+
+gulp.task('lint', function() {
+    return gulp.src(['src/**/*.js', '!node_modules/**'])
         .pipe($.eslint())
         .pipe($.eslint.format())
         .pipe($.eslint.formatEach('compact', process.stderr));
@@ -103,8 +118,6 @@ gulp.task('watch', function() {
 gulp.task('clean', function(cb) {
     del([dist], cb);
 });
-
-
 
 // by default build project and then watch files in order to trigger livereload
 gulp.task('default', ['build', 'serve', 'watch']);
