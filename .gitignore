@@ -20,3 +20,4 @@ src/bundles
 
 # sftp configuration file
 sftp-config.json
+.idea

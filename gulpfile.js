@@ -21,10 +21,10 @@ var autoprefixerBrowsers = [
     'ie_mob >= 10',
     'ff >= 30',
     'chrome >= 34',
-    'safari >= 6',
-    'opera >= 23',
+    'safari >= 5',
+    'opera >= 12',
     'ios >= 6',
-    'android >= 4.4',
+    'android >= 4.0',
     'bb >= 10'
 ];
 
