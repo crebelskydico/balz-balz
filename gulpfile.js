@@ -110,9 +110,9 @@ gulp.task('lint', function() {
 });
 
 gulp.task('watch', function() {
-    gulp.watch(src + 'styles/*.scss', ['styles']);
+    gulp.watch(src + 'styles/**/*.scss', ['styles']);
     gulp.watch(src + 'index.html', ['html']);
-    gulp.watch([src + 'app/**/*.js', src + 'app/**/*.hbs'], ['lint', 'scripts']);
+    gulp.watch([src + 'scripts/**/*.js'], ['lint', 'scripts']);
 });
 
 gulp.task('clean', function(cb) {

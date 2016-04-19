@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 
 <head>
     <meta charset="utf-8">
@@ -12,19 +12,76 @@
     <link rel="apple-touch-icon-precomposed" href="static/icons/apple-touch-icon.png">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="static/styles/normalize.css">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <script src="js/main.js"></script>
 </head>
 
-<body class="black">
-    <section id="main" class="Aligner">
-        <div class="Aligner-item Aligner-item--fixed width-50">
-            <img src="static/svg/bk-logo.svg" alt="Logo Black">
+<body>
+    <header id="header">
+        <div class="row show-for-large">
+            <div class="small-6 small-offset-3">
+                <nav class="menu menu--miranda">
+                    <ul class="menu__list">
+                        <li class="menu__item menu__item--current"><a href="#impressum" class="menu__link overlay__link">Impressum</a></li>
+                        <li class="menu__item"><a href="#datenschutz" class="menu__link overlay__link">Datenschutz</a></li>
+                        <li class="menu__item"><a href="https://www.instagram.com/balzundbalz/" class="menu__link">Instagram</a></li>
+                        <li class="menu__item"><a href="https://www.facebook.com/BalzundBalz/" class="menu__link">Facebook</a></li>
+                    </ul>
+                </nav>
+            </div>
         </div>
-        </br>
-        <div class="Aligner-item Aligner-item--fixed width-25">
-            <p>coming soon...</p>
+        <div class="mobilemenu">
+            <div class="row show-for-small hide-for-large">
+                <div class="small-12">
+                    <nav>
+                        <ul>
+                            <li><a class="overlay__link" href="#impressum">Impressum</a></li>
+                            <li><a class="overlay__link" href="#datenschutz">Datenschutz</a></li>
+                            <li><a href="https://www.instagram.com/balzundbalz/">Instagram</a></li>
+                            <li><a href="https://www.facebook.com/BalzundBalz/">Facebook</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div id="menu-toggle">
+            <span></span>
+        </div>
+    </header>
+    <section id="coming-soon">
+        <div class="row">
+            <div class="small-10 medium-10 large-4 small-offset-1 medium-offset-1 large-offset-4 text-center">
+                <h1 class="logo"><img src="static/svg/wt-logo-wt.svg" alt="Balz und Balz - CAFÉ UND FEINE KOST "></h1>
+                <div class="vertical-space"></div>
+            </div>
+            <div class="small-10 medium-10 large-4 small-offset-1 medium-offset-1 large-offset-4 text-center">
+                <p class="logo_subline">CAFÉ UND FEINE KOST</p>
+            </div>
+            <div class="small-10 medium-10 large-6 small-offset-1 medium-offset-1 large-offset-3">
+                <div class="spacer"></div>
+            </div>
+            <div class="small-10 medium-10 large-6 small-offset-1 medium-offset-1 large-offset-3">
+                <div class="vertical-space"></div>
+                <p class="text-center">
+                    Ein tolles zu Hause für Balz und Balz ist gefunden, die ersten Leitungen sind verlegt, der Klempner werkelt fleißig und unsere kreativen Köpfe arbeiten rund um die Uhr. Die Vorbereitungen zur Eröffnung unseres ersten eigenen Cafés (hoffentlich Ende April) laufen also auf Hochtouren! Mit viel Liebe zum Detail, jeder Menge Herzblut und der tatkräftigen Unterstützung unserer Familie und guten Freunden lassen wir den lang gehegten Traum wahr werden.
+                    <br />Über den aktuellen Stand der Dinge könnt ihr euch bei Instagram und Facebook informieren. Seid gespannt, freut euch mit uns und kommt bald vorbei!
+                    <br />Kathrin & Chris
+                </p>
+            </div>
         </div>
     </section>
-</body>
+    <section class="overlay">
 
+    </section>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-53217609-2', 'balzundbalz.de');
+        ga('set', 'anonymizeIp', true);
+        ga('send', 'pageview');
+    </script>
+</body>
 </html>

@@ -1,6 +1,6 @@
 var webpack = require('webpack');
 
-var entry = './src/app/main.js',
+var entry = './src/scripts/main.js',
     output = {
         path: __dirname,
         filename: 'main.js'

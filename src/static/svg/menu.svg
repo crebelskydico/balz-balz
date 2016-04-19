@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 3.7 (28169) - http://www.bohemiancoding.com/sketch -->
+    <title>burger-menu</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="coming-soon" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop" transform="translate(-1355.000000, -31.000000)" fill="#FFFFFF">
+            <g id="Header-Copy" transform="translate(59.000000, 20.000000)">
+                <g id="burger-menu" transform="translate(1296.000000, 11.000000)">
+                    <path d="M19.9544419,3.52941176 L0,3.52941176 L0,0 L19.9544419,0 L19.9544419,3.52941176 L19.9544419,3.52941176 Z M19.9544419,8.21390374 L0,8.21390374 L0,11.7433155 L19.9544419,11.7433155 L19.9544419,8.21390374 L19.9544419,8.21390374 Z M19.9544419,16.4278075 L0,16.4278075 L0,19.9572193 L19.9544419,19.9572193 L19.9544419,16.4278075 L19.9544419,16.4278075 Z" id="Shape"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
