@@ -2,7 +2,7 @@
 * @Author: Christian Rebelsky
 * @Date:   2016-04-19 11:39:56
 * @Last Modified by:   Christian Rebelsky
-* @Last Modified time: 2016-04-19 13:24:12
+* @Last Modified time: 2016-04-19 20:27:27
 */
 
 
@@ -16,6 +16,9 @@
 
 h2 {
     font-size: 18px;
+    &.big {
+        font-size: 30px;
+    }
 }
 
 p {

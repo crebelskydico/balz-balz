@@ -2,7 +2,7 @@
 * @Author: Christian Rebelsky
 * @Date:   2016-04-19 13:10:33
 * @Last Modified by:   Christian Rebelsky
-* @Last Modified time: 2016-04-19 18:13:17
+* @Last Modified time: 2016-04-19 20:32:37
 */
 
 #header {
@@ -11,7 +11,7 @@
     position: fixed;
     top: 0px;
     padding: 0.5em 0;
-    z-index: 20;
+    z-index: 10;
     .menu {
         transform: translateY(-120px);
         transition: all 0.3s linear;
@@ -28,12 +28,12 @@
     }
 }
 
-#menu-toggle {
+#menu-toggle, #overlay-toggle {
     position: absolute;
     width: 30px;
     height: 26px;
     cursor: pointer;
-    &.menu_toggle_active {
+    &.menu_toggle_active, &.overlay_toggle_active {
         span {
             background: transparent;
             &:after {
