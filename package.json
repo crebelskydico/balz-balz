@@ -1,20 +1,14 @@
 {
   "name": "balz-und-balz",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Balz und Balz page",
   "keywords": [
-    "backbone",
-    "starterkit",
-    "frontend",
-    "boilerplate",
-    "marionette",
     "es6",
     "webpack"
   ],
   "main": "index.html",
   "scripts": {
     "start": "gulp",
-    "build": "gulp build",
     "lint": "gulp lint"
   },
   "author": "@crebelsky <christian.rebelsky@gmail.com>",
