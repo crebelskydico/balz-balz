@@ -1,43 +1,16 @@
-body {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: normal;
-    &.black {
-        background-color: #1A1919;
-        color: #fff;
-    }
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
+@import "node_modules/foundation-sites/scss/foundation";
 
-img {
-    max-width: 100%;
-}
+@import "settings";
 
-p {
-    font-size: 20px;
-}
+@include foundation-global-styles;
+@include foundation-grid;
+@include foundation-typography;
+@include foundation-visibility-classes;
 
-.Aligner {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    flex-direction: column;
-    flex-wrap: wrap;
-}
-
-.Aligner-item--top {
-    align-self: flex-start;
-}
-
-.Aligner-item--bottom {
-    align-self: flex-end;
-}
-
-.width-50 {
-    max-width: 80%;
-}
-
-.width-25 {
-    max-width: 50%;
-}
+// custom styles
+@import "global";
+@import "components/typo";
+@import "components/bg";
+@import "components/coming-soon";
+@import "components/header";
+@import "components/overlay";

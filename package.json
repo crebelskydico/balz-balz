@@ -14,6 +14,7 @@
   "main": "index.html",
   "scripts": {
     "start": "gulp",
+    "build": "gulp build",
     "lint": "gulp lint"
   },
   "author": "@crebelsky <christian.rebelsky@gmail.com>",
@@ -55,7 +56,9 @@
     "webpack-dev-middleware": "1.0.11",
     "webpack-stream": "2.1.1"
   },
-  "dependencies": {},
+  "dependencies": {
+    "foundation-sites": "^6.2.1"
+  },
   "pre-commit": [
     "lint"
   ]

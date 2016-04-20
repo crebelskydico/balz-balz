@@ -1,0 +1,50 @@
+/*
+* @Author: Christian Rebelsky
+* @Date:   2016-04-19 18:08:00
+* @Last Modified by:   Christian Rebelsky
+* @Last Modified time: 2016-04-20 08:46:13
+*/
+.overlay {
+    position: absolute;
+    background-color: rgba(0,0,0,0.9);
+    width: 100%;
+    min-height: 100%;
+    height: auto;
+    z-index:10;
+    top:0;
+    left:0;
+    transform: translateY(-1200px);
+    transition: all 0.3s linear;
+
+    &.visible {
+        transform: translateY(0px);
+    }
+
+    &__impressum, &__datenschutz {
+        padding: 7em 0;
+        display: none;
+    }
+
+    #overlay-toggle {
+        z-index: 20;
+    }
+
+    h3 {
+        font-size: 18px;
+        font-weight: bold;
+    }
+}
+
+@include breakpoint(small up) {
+    #overlay-toggle {
+        right: 20px;
+        top: 20px;
+    }
+}
+
+@include breakpoint(large up) {
+    #overlay-toggle {
+        right: 65px;
+        top: 27px;
+    }
+}
