@@ -4,3 +4,4 @@
 )
 
 v0.0.2: all html instead of backbone for coming soon page
+v0.0.3: coming soon page in new look

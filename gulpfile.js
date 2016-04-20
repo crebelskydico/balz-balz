@@ -21,10 +21,10 @@ var autoprefixerBrowsers = [
     'ie_mob >= 10',
     'ff >= 30',
     'chrome >= 34',
-    'safari >= 6',
-    'opera >= 23',
+    'safari >= 5',
+    'opera >= 12',
     'ios >= 6',
-    'android >= 4.4',
+    'android >= 4.0',
     'bb >= 10'
 ];
 
@@ -110,9 +110,9 @@ gulp.task('lint', function() {
 });
 
 gulp.task('watch', function() {
-    gulp.watch(src + 'styles/*.scss', ['styles']);
+    gulp.watch(src + 'styles/**/*.scss', ['styles']);
     gulp.watch(src + 'index.html', ['html']);
-    gulp.watch([src + 'app/**/*.js', src + 'app/**/*.hbs'], ['lint', 'scripts']);
+    gulp.watch([src + 'scripts/**/*.js'], ['lint', 'scripts']);
 });
 
 gulp.task('clean', function(cb) {
