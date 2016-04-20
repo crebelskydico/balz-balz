@@ -2,12 +2,13 @@
 * @Author: Christian Rebelsky
 * @Date:   2016-04-19 13:10:33
 * @Last Modified by:   Christian Rebelsky
-* @Last Modified time: 2016-04-19 20:32:37
+* @Last Modified time: 2016-04-20 10:11:19
 */
 
 #header {
     width: 100%;
     min-height: 3em;
+    height: 100%;
     position: fixed;
     top: 0px;
     padding: 0.5em 0;
@@ -24,6 +25,33 @@
         font-size: 11px;
         a {
             &:hover {}
+        }
+    }
+
+    .mobilemenu {
+        position: absolute;
+        background-color: rgba(0,0,0,0.9);
+        width: 100%;
+        height: 100%;
+        top:0;
+        left:0;
+        transform: translateY(-1024px);
+        transition: all 0.3s linear;
+        text-align: center;
+        &.visible {
+            transform: translateY(0px);
+        }
+        .show-for-small {
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        li {
+            a {
+                font-size: 30px;
+                font-weight: normal;
+                padding: 0;
+            }
         }
     }
 }

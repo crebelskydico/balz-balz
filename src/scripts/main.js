@@ -25,14 +25,14 @@ document.addEventListener('DOMContentLoaded', function() {
             return false;
         } else {
             $('#menu-toggle').addClass('menu_toggle_active');
-            $('#header .menu').addClass('visible');
+            $('#header .show-for-large').css('display') === 'block' ? $('#header .menu').addClass('visible') : $('#header .mobilemenu').addClass('visible');
         }
     }
 
     function hideMenu() {
         $('#menu-toggle').removeClass('menu_toggle_active');
         $('*').removeClass('menu__item--current');
-        $('#header .menu').removeClass('visible');
+        $('#header .menu, #header .mobilemenu').removeClass('visible');
     }
 
     $('.menu__item').hover(function(){
