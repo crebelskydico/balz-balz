@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function hideOverlay(route) {
-        $('.overlay__datenschutz, .overlay__impressum').hide();
+        $('.overlay__datenschutz, .overlay__impressum, .overlay__oeffnungszeiten').hide();
         $('.overlay').removeClass('visible');
     }
 
