@@ -2,7 +2,7 @@
 * @Author: Christian Rebelsky
 * @Date:   2016-04-19 18:08:00
 * @Last Modified by:   Christian Rebelsky
-* @Last Modified time: 2016-05-18 09:11:49
+* @Last Modified time: 2016-05-18 10:42:57
 */
 .overlay {
     position: absolute;
@@ -25,6 +25,12 @@
     &__impressum, &__datenschutz, &__oeffnungszeiten {
         padding: 7em 0;
         display: none;
+    }
+
+    &__oeffnungszeiten {
+        table p {
+            margin-bottom: 0;
+        }
     }
 
     #overlay-toggle {
