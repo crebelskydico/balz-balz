@@ -82,6 +82,14 @@ gulp.task('static', function(cb) {
         .pipe(gulp.dest(dist + 'static/'));
 });
 
+gulp.task('root-files', function(cb) {
+    return gulp.src(src + '*.pdf')
+        .pipe($.size({
+            title: 'root-files'
+        }))
+        .pipe(gulp.dest(dist));
+});
+
 gulp.task('root-icons', function(cb) {
     return gulp.src(src + '*.{ico,png}')
         .pipe($.size({
@@ -124,5 +132,5 @@ gulp.task('default', ['build', 'serve', 'watch']);
 
 // waits until clean is finished then builds the project
 gulp.task('build', ['clean'], function() {
-    gulp.start(['static', 'root-icons', 'html', 'scripts', 'styles']);
+    gulp.start(['static', 'root-files', 'root-icons', 'html', 'scripts', 'styles']);
 });
