@@ -20,11 +20,13 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function showMenu() {
-         if($('#menu-toggle').hasClass('menu_toggle_active')) {
+         if ($('#menu-toggle').hasClass('menu_toggle_active')) {
             hideMenu();
+            $('#header').css('height', 'auto');
             return false;
         } else {
             $('#menu-toggle').addClass('menu_toggle_active');
+            $('#header').css('height', '100%');
             $('#header .show-for-large').css('display') === 'block' ? $('#header .menu').addClass('visible') : $('#header .mobilemenu').addClass('visible');
         }
     }
