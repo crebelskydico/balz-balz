@@ -8,3 +8,4 @@ v0.0.3: coming soon page in new look
 v0.0.4: small updates/fixes KW16
 v0.0.5: update text and opnening hours in coming soon template
 v0.0.6: add video to page
+v0.0.7: menu card in main menu
