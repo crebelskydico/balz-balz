@@ -1,6 +1,6 @@
 {
   "name": "balz-und-balz",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Balz und Balz page",
   "keywords": [
     "es6",
@@ -18,7 +18,7 @@
   "author": "@crebelsky <christian.rebelsky@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "git@bitbucket.org:crebelsky/balz-balz.git"
+    "url": "git@github.com:crebelsky/balz-balz.git"
   },
   "devDependencies": {
     "babel-core": "^6.1.2",
