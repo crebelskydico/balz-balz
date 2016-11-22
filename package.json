@@ -18,7 +18,7 @@
   "author": "@crebelsky <christian.rebelsky@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "git@bitbucket.org:crebelsky/balz-balz.git"
+    "url": "git@github.com:crebelsky/balz-balz.git"
   },
   "devDependencies": {
     "babel-core": "^6.1.2",
