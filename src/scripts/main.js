@@ -19,10 +19,6 @@ document.addEventListener('DOMContentLoaded', function() {
         $('.overlay').removeClass('visible');
     }
 
-    function showNotice() {
-        showOverlay('notice');
-    }
-
     function showMenu() {
          if ($('#menu-toggle').hasClass('menu_toggle_active')) {
             hideMenu();
@@ -57,13 +53,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     $('#menu-toggle').click(function(){
         showMenu();
-    })
+    });
 
     $('#overlay-toggle').click(function(){
         showOverlay();
-    });
-
-    $(window).on('load', function(){
-       showNotice();
     });
 });
