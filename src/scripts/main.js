@@ -31,6 +31,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
+    function showAwayNotice() {
+      showOverlay('notice');
+    }
+
     function hideMenu() {
         $('#menu-toggle').removeClass('menu_toggle_active');
         $('*').removeClass('menu__item--current');
@@ -57,5 +61,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     $('#overlay-toggle').click(function(){
         showOverlay();
+    });
+
+    $(window).on('load', function() {
+      showAwayNotice();
     });
 });
