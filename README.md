@@ -10,5 +10,6 @@
 - v0.0.6: add video to page
 - v0.0.7: menu card in main menu
 - v0.0.8: fix background image issue and cleanup
-	-   add away notice
+	-  add away notice
 	- removed away notice
+	- new away notice 
