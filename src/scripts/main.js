@@ -66,7 +66,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
   $(window).on('load', function() {
     const today = moment().format('YYYY-MM-DD');
-    if (moment(today).isBefore('2018-01-24', 'day')) {
+    const startDate = '2017-12-22';
+    const endDate = '2018-01-24';
+    if (moment(today).isBetween(startDate, endDate, 'day')) {
       showAwayNotice();
     }
   });
