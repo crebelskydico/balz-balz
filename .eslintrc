@@ -10,7 +10,6 @@
     "rules": {
         "brace-style": [2, "1tbs"],
         "comma-style": [2, "last"],
-        "indent": [2, 4, { "SwitchCase": 1 }],
         "no-constant-condition": 2,
         "semi": [2, "always"],
         "space-after-keywords": [2, "always"],

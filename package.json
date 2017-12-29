@@ -1,6 +1,6 @@
 {
   "name": "balz-und-balz",
-  "version": "0.0.8-away-notice-2017-2018",
+  "version": "0.0.9",
   "description": "Balz und Balz page",
   "keywords": [
     "es6",
@@ -45,7 +45,8 @@
     "webpack-stream": "^2.1.1"
   },
   "dependencies": {
-    "foundation-sites": "^6.2.1"
+    "foundation-sites": "^6.2.1",
+    "moment": "^2.20.1"
   },
   "pre-commit": [
     "lint"
