@@ -1,7 +1,7 @@
 node_modules
 dist
-_src/bower_components
-_src/bundles
+src/bower_components
+src/bundles
 *.log
 .DS_Store
 
