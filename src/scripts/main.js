@@ -70,6 +70,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const endDate = '2018-01-24';
     if (moment(today).isBetween(startDate, endDate, 'day')) {
       showAwayNotice();
+    } else {
+      $('.overlay__notice').hide();
     }
   });
 });
