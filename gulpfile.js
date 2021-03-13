@@ -31,7 +31,7 @@ var autoprefixerBrowsers = [
 gulp.task('scripts', function() {
     return gulp.src(webpackConfig.entry)
         .pipe($.webpackStream(webpackConfig))
-        .pipe(isProduction ? $.uglify() : $.util.noop())
+        .pipe($.uglify())
         .pipe(gulp.dest(dist + 'js/'))
         .pipe($.size({
             title: 'js'
@@ -51,7 +51,7 @@ gulp.task('html', function() {
 gulp.task('styles', function(cb) {
     return gulp.src(src + 'styles/main.scss')
         .pipe($.sass({
-            outputStyle: isProduction ? 'compressed' : 'expanded'
+            outputStyle: 'compressed'
         }).on('error', $.sass.logError))
         .pipe($.autoprefixer({
             browsers: autoprefixerBrowsers
