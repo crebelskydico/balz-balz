@@ -6,10 +6,6 @@
     "es6",
     "webpack"
   ],
-  "engines": {
-    "node": ">= 6.9.0",
-    "npm": ">= 3.0.0"
-  },
   "scripts": {
     "start": "gulp",
     "lint": "gulp lint",
