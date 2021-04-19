@@ -1,6 +1,15 @@
-var gulp = require('gulp');
-var path = require('path');
-var del = require('del');
+const { src, dest, parallel, series, watch } = require('gulp');
+const sass = require('gulp-sass');
+const prefix = require('gulp-autoprefixer');
+const eslint = require('gulp-eslint');
+const webpackStream = require('webpack-stream');
+const connect = require('gulp-connect');
+const size = require('gulp-size');
+const uglify = require('gulp-uglify');
+const del = require('del');
+const critical = require('critical');
+
+
 var $ = require('gulp-load-plugins')({
     pattern: '*',
 });
@@ -9,11 +18,9 @@ var environment = $.util.env.type || 'development';
 var isProduction = environment === 'production';
 var webpackConfig = require('./webpack.config.js')[environment];
 
-var critical = require('critical');
-
 
 var port = $.util.env.port || 1337;
-var src = 'src/';
+var dev = 'src/';
 var dist = 'dist/';
 
 var autoprefixerBrowsers = [
@@ -28,77 +35,80 @@ var autoprefixerBrowsers = [
     'bb >= 10'
 ];
 
-gulp.task('scripts', function() {
-    return gulp.src(webpackConfig.entry)
-        .pipe($.webpackStream(webpackConfig))
-        .pipe($.uglify())
-        .pipe(gulp.dest(dist + 'js/'))
-        .pipe($.size({
-            title: 'js'
-        }))
-        .pipe($.connect.reload());
-});
 
-gulp.task('html', function() {
-    return gulp.src(src + 'index.html')
-        .pipe(gulp.dest(dist))
-        .pipe($.size({
-            title: 'html'
-        }))
-        .pipe($.connect.reload());
-});
+// SCSS bundled into CSS task
+function css() {
+  return src(dev + 'styles/main.scss')
+  .pipe(sass({
+      outputStyle: 'compressed'
+  }).on('error', sass.logError))
+  .pipe(prefix({
+      browsers: autoprefixerBrowsers
+  }))
+  .pipe(dest(dist + 'css/'))
+  .pipe(size({
+      title: 'css'
+  }))
+  .pipe(connect.reload());
+}
 
-gulp.task('styles', function(cb) {
-    return gulp.src(src + 'styles/main.scss')
-        .pipe($.sass({
-            outputStyle: 'compressed'
-        }).on('error', $.sass.logError))
-        .pipe($.autoprefixer({
-            browsers: autoprefixerBrowsers
-        }))
-        .pipe(gulp.dest(dist + 'css/'))
-        .pipe($.size({
-            title: 'css'
-        }))
-        .pipe($.connect.reload());
+// JS bundled into min.js task
+function js() {
+    return src(webpackConfig.entry)
+    .pipe(webpackStream(webpackConfig))
+    .pipe(uglify())
+    .pipe(dest(dist + 'js/'))
+    .pipe(size({
+        title: 'js'
+    }))
+    .pipe(connect.reload());
+}
 
-});
+function html() {
+    return src(dev +  'index.html')
+    .pipe(dest(dist))
+    .pipe(size({
+        title: 'html'
+    }))
+    .pipe(connect.reload());
+}
 
-gulp.task('serve', function() {
-    $.connect.server({
+function serve() {
+    connect.server({
         root: dist,
         port: port,
         livereload: {
             port: 35728
         }
     });
-});
 
-gulp.task('static', function(cb) {
-    return gulp.src(src + 'static/**/*')
-        .pipe($.size({
-            title: 'static'
-        }))
-        .pipe(gulp.dest(dist + 'static/'));
-});
+}
 
-gulp.task('root-files', function(cb) {
-    return gulp.src(src + '*.pdf')
-        .pipe($.size({
-            title: 'root-files'
-        }))
-        .pipe(gulp.dest(dist));
-});
+function staticFiles() {
+    return src(dev +  'static/**/*')
+    .pipe(size({
+        title: 'static'
+    }))
+    .pipe(dest(dist + 'static/'));
+}
 
-gulp.task('root-icons', function(cb) {
-    return gulp.src(src + '*.{ico,png}')
-        .pipe($.size({
-            title: 'root-icons'
-        }))
-        .pipe(gulp.dest(dist));
-});
+function rootFiles() {
+    return src(dev +  '*.pdf')
+    .pipe(size({
+        title: 'root-files'
+    }))
+    .pipe(dest(dist));
+}
 
-gulp.task('critical', function(cb) {
+function rootIcons() {
+    return src(dev +  '*.{ico,png}')
+    .pipe(size({
+        title: 'root-icons'
+    }))
+    .pipe(dest(dist));
+}
+
+function criticalFiles() {
     critical.generate({
         inline: true,
         base: 'dist/',
@@ -108,29 +118,26 @@ gulp.task('critical', function(cb) {
         width: 320,
         height: 480
     });
-});
+}
 
-gulp.task('lint', function() {
-    return gulp.src(['src/**/*.js', '!node_modules/**'])
-        .pipe($.eslint())
-        .pipe($.eslint.format())
-        .pipe($.eslint.formatEach('compact', process.stderr));
-});
+function lint() {
+    return src(['src/**/*.js', '!node_modules/**'])
+    .pipe(eslint())
+    .pipe(eslint.format())
+    .pipe(eslint.formatEach('compact', process.stderr));
+}
 
-gulp.task('watch', function() {
-    gulp.watch(src + 'styles/**/*.scss', ['styles']);
-    gulp.watch(src + 'index.html', ['html']);
-    gulp.watch([src + 'scripts/**/*.js'], ['lint', 'scripts']);
-});
+function watchFiles() {
+    watch(dev +  'styles/**/*.scss', parallel(css));
+    watch(dev +  'index.html', parallel(html));
+    watch([dev +  'scripts/**/*.js'], parallel(lint, js));
+}
 
-gulp.task('clean', function(cb) {
+function clean(cb) {
     del([dist], cb);
-});
+}
 
-// by default build project and then watch files in order to trigger livereload
-gulp.task('default', ['build', 'serve', 'watch']);
+const build = series(clean, parallel(staticFiles, rootFiles, rootIcons, html, js, css));
 
-// waits until clean is finished then builds the project
-gulp.task('build', ['clean'], function() {
-    gulp.start(['static', 'root-files', 'root-icons', 'html', 'scripts', 'styles']);
-});
+exports.default = parallel(build, serve, watchFiles);
+exports.build = build;
