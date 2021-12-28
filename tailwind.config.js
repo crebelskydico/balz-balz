@@ -13,6 +13,7 @@ module.exports = {
     },
     colors: {
       'background': '#141313',
+      'overlay': 'rgba(0,0,0,0.95)',
       'white': '#fff',
     },
     fontFamily: {
