@@ -37,6 +37,7 @@ function BalzBalz({ Component, pageProps }: AppProps) {
         <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#6e6e6e" />
         <meta name="msapplication-TileColor" content="#00aba9" />
         <meta name="theme-color" content="#ffffff" />
+        <meta name="google-site-verification" content="3M2aWAIniBREXMYPj-iJearPF9NjE2aeGj-qiyYwYww" />
       </Head>
       <MenuContextProvider>
         <Component {...pageProps} />
