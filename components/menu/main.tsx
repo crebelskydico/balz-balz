@@ -61,7 +61,7 @@ const MainMenu = () => {
                   <a
                     className="MainMenu_link text-white font-bold text-base md:text-xs p-4 min-w-max-content"
                     target={!item.target ? '_self' : item.target}
-                    onClick={() => toggleOverlay(true)}
+                    onClick={() => !item.target ? toggleOverlay(true) : toggleMenu(false)}
                   >
                     {item.title.toUpperCase()}
                   </a>

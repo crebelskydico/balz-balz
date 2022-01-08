@@ -79,7 +79,6 @@ const Main = ({BASE_CLASS, title, content, path}: Props) => {
             className={`text-gray-500 w-10 h-10 absolute top-2 right-1 focus:outline-none self-center ${menuiconClassName}`}
             onClick={() => {
               toggleOverlay(false);
-              toggleMenu(!menuIsOpen);
             }}
             aria-label={`${menuIsOpen ? 'Menü schließen' : 'Menü öffnen'}`}
           >
