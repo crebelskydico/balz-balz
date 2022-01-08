@@ -64,7 +64,7 @@ const Main = ({BASE_CLASS, title, content, path}: Props) => {
         </section>
       </main>
       <div
-        className={`${BASE_CLASS}_overlay absolute bg-overlay w-full min-h-full z-20 top-0 left-0 transition-all duration-300 ease-linear flex flex-col items-center px-4 py-28 ${overlayClass}`}
+        className={`${BASE_CLASS}_overlay absolute bg-overlay w-full min-h-full md:min-h-screen z-20 top-0 left-0 transition-all duration-300 ease-linear flex flex-col items-center px-4 py-28 ${overlayClass}`}
       >
         <div className="w-full md:max-w-3xl px-4">
           <h2 className="text-3xl pb-2">{title}</h2>
