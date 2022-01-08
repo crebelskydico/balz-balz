@@ -2,6 +2,8 @@ import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import '../styles/globals.css';
 import { MenuContextProvider } from '../components/MenuContext';
+import PNEL from '../components/pnel';
+import GA from '../components/gtag';
 
 function BalzBalz({ Component, pageProps }: AppProps) {
   return (
@@ -39,6 +41,8 @@ function BalzBalz({ Component, pageProps }: AppProps) {
       <MenuContextProvider>
         <Component {...pageProps} />
       </MenuContextProvider>
+      <PNEL />
+      <GA />
     </div>
   );
 }

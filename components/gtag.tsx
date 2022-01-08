@@ -2,7 +2,7 @@ import Script from 'next/script'
 
 const GA_MEASUREMENT_ID = 'UA-53217609-2';
 
-const Home = () => {
+const GA = () => {
   return (
     <>
       <Script
@@ -21,4 +21,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default GA
