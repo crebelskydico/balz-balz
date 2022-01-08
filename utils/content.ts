@@ -4,7 +4,8 @@ import matter from 'gray-matter';
 import { remark } from 'remark';
 import html from 'remark-html';
 import remarkBreaks from 'remark-breaks';
-
+import { ParsedNextUrl } from 'next/dist/shared/lib/router/utils/parse-next-url';
+import { ParsedUrlQuery } from 'querystring';
 
 export async function markdownToHtml(markdown: string) {
     const result = await remark().use(html).use(remarkBreaks).process(markdown);
@@ -28,7 +29,7 @@ export const getContentPaths = () => {
     return paths;
 }
 
-export const getContentByPath = async (path: string) => {
+export const getContentByPath = async (path: ParsedUrlQuery['path']) => {
     const markDownContent = fs.readFileSync(`content/${path}.md`).toString();
   
     const parsedContent = matter(markDownContent);

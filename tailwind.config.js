@@ -15,6 +15,7 @@ module.exports = {
       'background': '#141313',
       'overlay': 'rgba(0,0,0,0.95)',
       'white': '#fff',
+      'transparent':'rgba(0,0,0,0)',
     },
     fontFamily: {
       sans: ["Open Sans", "Helvetica Neue", 'Helvetica', 'Roboto', 'Arial', 'sans-serif'],

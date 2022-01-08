@@ -9,25 +9,23 @@ body {
 
 h1,
 h2,
+h3,
 p {
   @apply text-white;
 }
-
-#balzbalz {
-  @apply h-screen w-screen bg-center bg-cover bg-no-repeat;
-  background-image: url('../public/images/background-small.png');
+h2 {
+  @apply text-xl;
+}
+h3 {
+  @apply font-semibold text-lg;
 }
 
-@media screen(md) {
-  #balzbalz {
-    background-image: url('../public/images/background-medium.png');
-  }
+p {
+  word-wrap: break-word;
 }
 
-@media screen(lg) {
-  #balzbalz {
-    background-image: url('../public/images/background.png');
-  }
+p a {
+  @apply underline;
 }
 
 .vertical-space {
@@ -38,148 +36,31 @@ p {
   @apply w-full h-px bg-white;
 }
 
+#balzbalz {
+  @apply relative;
+}
+
+#balzbalz::before {
+  @apply fixed top-0 bottom-0 right-0 left-0 bg-no-repeat bg-cover;
+  background-image: url('../public/images/background-small.png');
+  content: '';
+}
+
+@media screen(md) {
+  #balzbalz::before {
+    background-image: url('../public/images/background-medium.png');
+  }
+}
+
+@media screen(lg) {
+  #balzbalz::before {
+    background-image: url('../public/images/background.png');
+  }
+}
+.BB_wrapper {
+  @apply h-full md:h-screen w-full md:w-screen;
+}
+
 .BB_overlay p {
   @apply pb-4;
-}
-
-.MainMenu_item::before,
-.MainMenu_item::after,
-.MainMenu_link::before,
-.MainMenu_link::after {
-    content: '';
-    position: absolute;
-    background: $white;
-    -webkit-transition: -webkit-transform 0.1s;
-    transition: transform 0.1s;
-    -webkit-transition-timing-function: cubic-bezier(1, 0.68, 0.16, 0.9);
-    transition-timing-function: cubic-bezier(1, 0.68, 0.16, 0.9);
-}
-
-
-/* left and right line */
-
-.MainMenu_item::before,
-.MainMenu_item::after {
-    top: 0;
-    width: 2px;
-    height: 100%;
-    -webkit-transform: scale3d(1, 0, 1);
-    transform: scale3d(1, 0, 1);
-}
-
-
-/* left line */
-
-.MainMenu_item::before {
-    left: 0;
-    -webkit-transform-origin: 50% 100%;
-    transform-origin: 50% 100%;
-}
-
-
-/* right line */
-
-.MainMenu_item::after {
-    right: 0;
-    -webkit-transform-origin: 50% 0%;
-    transform-origin: 50% 0%;
-}
-
-
-/* top and bottom line */
-
-.MainMenu_link::before,
-.MainMenu_link::after {
-    left: 0;
-    width: 100%;
-    height: 2px;
-    -webkit-transform: scale3d(0, 1, 1);
-    transform: scale3d(0, 1, 1);
-}
-
-
-/* top line */
-
-.MainMenu_link::before {
-    top: 0;
-    -webkit-transform-origin: 0 50%;
-    transform-origin: 0 50%;
-}
-
-
-/* bottom line */
-
-.MainMenu_link::after {
-    bottom: 0;
-    -webkit-transform-origin: 100% 50%;
-    transform-origin: 100% 50%;
-}
-
-
-/* Delays (first reverse, then current) */
-
-
-/* These rules can be simplified, but let's keep it for better readability */
-
-
-/* bottom line */
-
-.MainMenu_link::after {
-    -webkit-transition-delay: 0.3s;
-    transition-delay: 0.3s;
-}
-
-.MainMenu_item--current::after,
-.MainMenu_item--hover::after {
-    -webkit-transition-delay: 0s;
-    transition-delay: 0s;
-}
-
-
-/* left line */
-
-.MainMenu_item::before {
-    -webkit-transition-delay: 0.2s;
-    transition-delay: 0.2s;
-}
-
-.MainMenu_item--current::before,
-.MainMenu_item--hover::before {
-    -webkit-transition-delay: 0.1s;
-    transition-delay: 0.1s;
-}
-
-
-/* top line */
-
-.MainMenu_item::before {
-    -webkit-transition-delay: 0.1s;
-    transition-delay: 0.1s;
-}
-
-.MainMenu_item--current::before,
-.MainMenu_item--hover::before {
-    -webkit-transition-delay: 0.2s;
-    transition-delay: 0.2s;
-}
-
-
-/* right line */
-
-.MainMenu_item--current::after,
-.MainMenu_item--hover::after {
-    -webkit-transition-delay: 0.3s;
-    transition-delay: 0.3s;
-}
-
-.MainMenu_item--current::before,
-.MainMenu_item--current::after,
-.MainMenu_item--current::before,
-.MainMenu_item--current::after,
-.MainMenu_item--hover::before,
-.MainMenu_item--hover::after,
-.MainMenu_item--hover::before,
-.MainMenu_item--hover::after {
-    -webkit-transform: scale3d(1, 1, 1);
-    transform: scale3d(1, 1, 1);
 }

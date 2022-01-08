@@ -2,8 +2,19 @@
 title: 'Impressum'
 ---
 
-Balz und Balz Gbr
+**Angaben gemäß § 5 TMG:**
+
+Balz und Balz GbR
 Lehmweg 6
 20251 Hamburg
 
-Mittwoch - Samstag 10.00 Uhr - 16.00 Uhr
+**Vertreten durch:**
+
+Kathrin Balz, Christoph Balz
+
+**Kontakt:**
+
+Telefon:	04060438833
+E-Mail:	hello@balzundbalz.de
+
+*Quelle: eRecht24*

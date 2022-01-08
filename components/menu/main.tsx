@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import Link from 'next/link';
 import clsx from 'clsx';
 import { MenuContext } from '../MenuContext';
@@ -27,10 +27,20 @@ const MainMenu = () => {
   const {menuIsOpen, toggleMenu} = useContext(MenuContext);
   const {overlayIsOpen, toggleOverlay} = useContext(MenuContext);
 
+  useEffect(() => {
+    if(overlayIsOpen) {
+      toggleMenu(false);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [overlayIsOpen]);
+
+  const headerClassName = clsx(
+    menuIsOpen&& 'bg-overlay md:bg-transparent'
+  );
   const navigationClassName = clsx(
     'BB_navigation',
     'BB_navigation--main',
-    !menuIsOpen ? '-translate-y-32' : 'translate-y-0'
+    !menuIsOpen ? '-translate-y-full md:-translate-y-32' : 'md:translate-y-0',
   );
   const menuiconClassName = clsx(
     'BB_menuicon',
@@ -39,17 +49,17 @@ const MainMenu = () => {
     overlayIsOpen && 'hidden'
   );
   return (
-    <header className="MainMenu flex justify-center w-full h-auto fixed top-0 z-10 px-2">
+    <header className={`BB_header flex justify-center w-full h-full md:h-auto fixed top-0 z-20 px-2 transition-all duration-300 ease-linear ${headerClassName} pt-12 md:pt-0`}>
       <nav
         className={`${navigationClassName} transition-all duration-300 ease-linear`}
       >
-        <ul className="flex justify-center">
+        <ul className=" flex-row md:flex justify-center text-center">
           {menuItems.map((item) => {
             return (
               <li key={item.href} className="MainMenu_item p-4">
-                <Link href={`/?path=${item.href}`} as={`${item.href}`}>
+                <Link href={`/?path=${item.href}`} as={!item.target ? `/${item.href}` : `${item.href}`} passHref={true}>
                   <a
-                    className="MainMenu_link text-white font-bold text-xs p-4 min-w-max-content"
+                    className="MainMenu_link text-white font-bold text-base md:text-xs p-4 min-w-max-content"
                     target={!item.target ? '_self' : item.target}
                     onClick={() => toggleOverlay(true)}
                   >
@@ -62,8 +72,9 @@ const MainMenu = () => {
         </ul>
       </nav>
       <button
-        className={`text-gray-500 w-10 h-10 absolute right-5 focus:outline-none self-center ${menuiconClassName}`}
+        className={`text-gray-500 w-10 h-10 absolute top-2 md:top-auto right-5 focus:outline-none self-center ${menuiconClassName}`}
         onClick={() => toggleMenu(!menuIsOpen)}
+        aria-label={menuIsOpen ? 'Menü schliessen' : 'Menü öffnen'}
       >
         <div className="block w-5 relative">
           <span
