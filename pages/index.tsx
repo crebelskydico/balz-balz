@@ -8,10 +8,9 @@ import Main from '../components/Main';
 
 import { ParsedUrlQuery } from 'querystring';
 
-const BASE_CLASS = 'BB';
-
-//TODO banner paynoweatlater
-
+type FeatureTypes = {
+  absenceFeature: boolean;
+}
 interface ContentPropTypes {
   data: {
     meta: {
@@ -22,6 +21,11 @@ interface ContentPropTypes {
   }[];
 }
 
+const BASE_CLASS = 'BB';
+const PAGE_CONFIG: FeatureTypes = {
+  absenceFeature: false
+};
+
 const Home = ({ ...props }: ContentPropTypes) => {
   const router = useRouter();
   const { path } = router.query;
@@ -31,7 +35,7 @@ const Home = ({ ...props }: ContentPropTypes) => {
   )[0];  
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
+    if (typeof window !== 'undefined' && PAGE_CONFIG.absenceFeature) {
       if (localStorage.getItem('absence') !== 'viewed') {
         router.push('/absence');
       }
