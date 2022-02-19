@@ -13,7 +13,7 @@ interface Props {
 }
 const Main = ({BASE_CLASS, title, content, path}: Props) => {
 
-  const { menuIsOpen, toggleMenu } = useContext(MenuContext);
+  const { menuIsOpen } = useContext(MenuContext);
   const { overlayIsOpen, toggleOverlay } = useContext(MenuContext)
 
   const overlayClass = clsx(!path && '-translate-y-full');
