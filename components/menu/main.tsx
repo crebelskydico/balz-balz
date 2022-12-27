@@ -7,7 +7,6 @@ type OptionalExceptFor<T, TRequired extends keyof T> = Partial<T> &
   Pick<T, TRequired>;
 
 const menuItems: OptionalExceptFor<HTMLAnchorElement, 'href' | 'title'>[] = [
-  { href: 'oeffnungszeiten', title: 'Öffnungszeiten' },
   { href: 'impressum', title: 'Impressum' },
   { href: 'datenschutz', title: 'Datenschutz' },
   {
