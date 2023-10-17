@@ -6,10 +6,13 @@ type ContextProps = {
     overlayIsOpen: boolean;
     toggleOverlay: (param: boolean) => void;
 }
+interface Props {
+  children: React.ReactNode;
+}
 
 const MenuContext = React.createContext({} as ContextProps);
 
-const MenuContextProvider: React.FunctionComponent = (props) => {
+const MenuContextProvider: React.FC<Props> = ({ children }) => {
     const [menuIsOpen, menuSetOpen] = useState(false);
     const [overlayIsOpen, overlaySetOpen] = useState(false);
 
@@ -23,8 +26,8 @@ const MenuContextProvider: React.FunctionComponent = (props) => {
 
 
     return (
-        <MenuContext.Provider value={{menuIsOpen, overlayIsOpen, toggleMenu, toggleOverlay}}>
-        {props.children}
+    <MenuContext.Provider value={{menuIsOpen, overlayIsOpen, toggleMenu, toggleOverlay}}>
+        {children}
     </MenuContext.Provider>
     )
 }
