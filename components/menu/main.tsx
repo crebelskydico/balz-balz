@@ -56,14 +56,16 @@ const MainMenu = () => {
           {menuItems.map((item) => {
             return (
               <li key={item.href} className="MainMenu_item p-4">
-                <Link href={`/?path=${item.href}`} as={!item.target ? `/${item.href}` : `${item.href}`} passHref={true}>
-                  <a
-                    className="MainMenu_link text-white font-bold text-base md:text-xs p-4 min-w-max-content"
-                    target={!item.target ? '_self' : item.target}
-                    onClick={() => !item.target ? toggleOverlay(true) : toggleMenu(false)}
-                  >
-                    {item.title.toUpperCase()}
-                  </a>
+                <Link
+                  href={`/?path=${item.href}`}
+                  as={!item.target ? `/${item.href}` : `${item.href}`}
+                  passHref={true}
+                  className="MainMenu_link text-white font-bold text-base md:text-xs p-4 min-w-max-content"
+                  target={!item.target ? '_self' : item.target}
+                  onClick={() => !item.target ? toggleOverlay(true) : toggleMenu(false)}>
+
+                  {item.title.toUpperCase()}
+
                 </Link>
               </li>
             );
