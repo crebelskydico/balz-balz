@@ -10,8 +10,12 @@ const { frontmatter } = Astro.props;
     <link rel="icon" href="/icon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" /><!-- 180×180 -->
     <link rel="manifest" href="/site.webmanifest" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     <meta name="generator" content={Astro.generator} />
+    <meta
+      name="description"
+      content="Balz und Balz - Café und feine Kost in Hamburg Hoheluft."
+    />
     <title>{frontmatter.title} | Balz und Balz</title>
   </head>
   <body class="bg-black text-white">
