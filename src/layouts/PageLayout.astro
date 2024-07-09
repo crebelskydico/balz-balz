@@ -1,0 +1,52 @@
+---
+import Header from "@components/Header/index.astro";
+const { title } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" /><!-- 180×180 -->
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta
+      name="description"
+      content="Balz und Balz - Café und feine Kost in Hamburg Hoheluft."
+    />
+    <title>{title} | Balz und Balz</title>
+  </head>
+  <body class="grid font-sans text-white 2xl:overflow-y-auto">
+    <picture class="col-[1/1] row-[1/1]">
+      <source
+        type="image/webp"
+        srcset="/images/bg.webp"
+        media="(min-width: 1280px)"
+      />
+      <source
+        type="image/webp"
+        srcset="/images/bg-medium.webp"
+        media="(min-width: 768px)"
+      />
+      <source type="image/webp" srcset="/images/bg-small.webp" />
+      <img
+        class="bg h-full md:h-screen object-cover w-screen"
+        src="/images/bg.png"
+        alt="Astro"
+      />
+    </picture>
+
+    <div class="col-[1/1] row-[1/1]">
+      <div class="grid grid-columns-rootgrid grid-cols-root gap-4">
+        <header class="col-span-full grid grid-cols-subgrid">
+          <Header />
+        </header>
+        <main class="col-span-full grid grid-cols-subgrid pt-28 pb-28">
+          <slot />
+        </main>
+      </div>
+    </div>
+  </body>
+</html>
