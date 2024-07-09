@@ -3609,6 +3609,7 @@ __metadata:
     eslint-plugin-jsx-a11y: "npm:^6.9.0"
     prettier: "npm:^3.3.2"
     prettier-plugin-astro: "npm:^0.14.0"
+    sharp: "npm:^0.33.4"
     tailwindcss: "npm:^3.4.4"
     typescript: "npm:^5.5.3"
   languageName: unknown
@@ -6167,7 +6168,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sharp@npm:^0.33.3":
+"sharp@npm:^0.33.3, sharp@npm:^0.33.4":
   version: 0.33.4
   resolution: "sharp@npm:0.33.4"
   dependencies:
