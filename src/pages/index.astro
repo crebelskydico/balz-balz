@@ -1,14 +1,9 @@
 ---
-import { Image } from "astro:assets";
-import Logo from "../wt-logo-wt.svg";
-import PageLayout from "../layouts/PageLayout.astro";
+import PageLayout from "@layouts/PageLayout.astro";
 ---
 
 <PageLayout title="Home">
-  <section class="col-[2/-2] lg:col-[7/-7] justify-self-center">
-    <Image src={Logo} height="117" width="180" alt="Balz und Balz Logo" />
-  </section>
-  <section class="col-[2/-2] lg:col-[5/-5] l">
+  <section class="col-[2/-2] lg:col-[5/-5]">
     <h2 class="text-xl pt-4 pb-4 flex justify-center">CAFÉ UND FEINE KOST</h2>
     <div class="spacer w-full h-px bg-white"></div>
     <p class="pt-4 pb-4">
