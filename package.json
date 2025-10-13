@@ -1,6 +1,20 @@
 {
-  "name": "helpless-heliosphere",
+  "name": "balzbalz",
   "version": "0.0.1",
+  "description": "Homepage of balzbalz cafe in Hamburg, Germany",
+  "keywords": [
+    "astro",
+    "tailwind",
+    "personal",
+    "website",
+    "blog"
+  ],
+  "license": "MIT",
+  "author": {
+    "name": "Christian Rebelsky",
+    "email": "christian.rebelsky+github@gmail.com",
+    "url": "https://github.com/crebelskydico"
+  },
   "type": "module",
   "scripts": {
     "astro": "astro",
