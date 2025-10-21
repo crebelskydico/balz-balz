@@ -1980,6 +1980,27 @@ __metadata:
   languageName: node
   linkType: hard
 
+"balzbalz@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "balzbalz@workspace:."
+  dependencies:
+    "@astrojs/check": "npm:0.9.4"
+    "@astrojs/tailwind": "npm:6.0.2"
+    "@astrojs/vercel": "npm:8.2.9"
+    "@tailwindcss/typography": "npm:^0.5.13"
+    "@types/node": "npm:20.14.10"
+    "@typescript-eslint/parser": "npm:^7.15.0"
+    astro: "npm:5.14.4"
+    eslint: "npm:^9.6.0"
+    eslint-plugin-astro: "npm:^1.2.2"
+    eslint-plugin-jsx-a11y: "npm:^6.9.0"
+    prettier: "npm:^3.3.2"
+    prettier-plugin-astro: "npm:^0.14.0"
+    tailwindcss: "npm:^3.4.4"
+    typescript: "npm:^5.5.3"
+  languageName: unknown
+  linkType: soft
+
 "base-64@npm:^1.0.0":
   version: 1.0.0
   resolution: "base-64@npm:1.0.0"
@@ -3796,27 +3817,6 @@ __metadata:
   checksum: 10c0/f0b54bbdd710854b71c0f044612db0fe1b5e4d74fa2001633dc8c535c26033269f04f536f9fd5b03f234de1111808f9e230e9d19493bf919432bb24d541719e0
   languageName: node
   linkType: hard
-
-"helpless-heliosphere@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "helpless-heliosphere@workspace:."
-  dependencies:
-    "@astrojs/check": "npm:0.9.4"
-    "@astrojs/tailwind": "npm:6.0.2"
-    "@astrojs/vercel": "npm:8.2.9"
-    "@tailwindcss/typography": "npm:^0.5.13"
-    "@types/node": "npm:20.14.10"
-    "@typescript-eslint/parser": "npm:^7.15.0"
-    astro: "npm:5.14.4"
-    eslint: "npm:^9.6.0"
-    eslint-plugin-astro: "npm:^1.2.2"
-    eslint-plugin-jsx-a11y: "npm:^6.9.0"
-    prettier: "npm:^3.3.2"
-    prettier-plugin-astro: "npm:^0.14.0"
-    tailwindcss: "npm:^3.4.4"
-    typescript: "npm:^5.5.3"
-  languageName: unknown
-  linkType: soft
 
 "html-escaper@npm:3.0.3":
   version: 3.0.3
@@ -7451,8 +7451,8 @@ __metadata:
   linkType: hard
 
 "vite@npm:^6.3.6":
-  version: 6.3.6
-  resolution: "vite@npm:6.3.6"
+  version: 6.4.1
+  resolution: "vite@npm:6.4.1"
   dependencies:
     esbuild: "npm:^0.25.0"
     fdir: "npm:^6.4.4"
@@ -7501,7 +7501,7 @@ __metadata:
       optional: true
   bin:
     vite: bin/vite.js
-  checksum: 10c0/add701f1e72596c002275782e38d0389ab400c1be330c93a3009804d62db68097a936ca1c53c3301df3aaacfe5e328eab547060f31ef9c49a277ae50df6ad4fb
+  checksum: 10c0/77bb4c5b10f2a185e7859cc9a81c789021bc18009b02900347d1583b453b58e4b19ff07a5e5a5b522b68fc88728460bb45a63b104d969e8c6a6152aea3b849f7
   languageName: node
   linkType: hard
 
