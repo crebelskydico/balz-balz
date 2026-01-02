@@ -1,5 +1,38 @@
 ---
 import PageLayout from "@layouts/PageLayout.astro";
+import {list} from '@vercel/blob';
+
+const assets = await list({
+  prefix: 'balzbalz/videos/',
+  token: import.meta.env.MICROSITE_FRA_READ_WRITE_TOKEN,
+});
+
+const videos = assets.blobs
+  .filter(item => !item.pathname.endsWith('/'))
+  .map(video => {
+    const fileName = video.pathname.split('/').pop() || '';
+    let type = null;
+    let isPoster = false;
+    
+    if (fileName.endsWith('.mp4')) {
+      type = 'video/mp4';
+    } else if (fileName.endsWith('.ogv')) {
+      type = 'video/ogg';
+    } else if (fileName.includes('poster')) {
+      isPoster = true;
+    }
+    
+    return {
+      url: video.url,
+      name: video.pathname,
+      fileName,
+      type,
+      isPoster,
+    };
+  });
+
+const posterImage = videos.find(v => v.isPoster);
+const videoSources = videos.filter(v => v.type);
 ---
 
 <PageLayout title="Home">
@@ -16,9 +49,10 @@ import PageLayout from "@layouts/PageLayout.astro";
     </p>
   </section>
   <section class="pt-4 w-full col-[2/-2] lg:col-[5/-5]">
-    <video width="100%" controls poster="https://fgugxdhqeoiqjcrp.public.blob.vercel-storage.com/balzubalz-video-poster-fMxRc4lNTjjRAYsbT666LhLYRs7xDz.jpg">
-      <source src="https://fgugxdhqeoiqjcrp.public.blob.vercel-storage.com/BalzuBalz-HosKz6LvvZsze016i83nFmoRuMgFgd.mp4" type="video/mp4" />
-      <source src="https://fgugxdhqeoiqjcrp.public.blob.vercel-storage.com/BalzuBalz-D0X7csxLs9a2vxVdzGHl0EJ1sTGSCJ.ogv" type="video/ogg" />
+    <video width="100%" controls poster={posterImage?.url}>
+      {videoSources.map(video => (
+        <source src={video.url} type={video.type} />
+      ))}
     </video>
   </section>
 </PageLayout>

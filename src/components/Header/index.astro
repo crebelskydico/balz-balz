@@ -1,7 +1,12 @@
 ---
 import { Image } from "astro:assets";
 
-import Logo from "../../wt-logo-wt.svg";
+import { head } from '@vercel/blob';
+
+const logo = await head('balzbalz/images/wt-logo.svg', {
+  token: import.meta.env.MICROSITE_FRA_READ_WRITE_TOKEN,
+});
+
 ---
 
 <nav class="col-[5/-5] py-8">
@@ -12,7 +17,7 @@ import Logo from "../../wt-logo-wt.svg";
     <li>
       <a href="/">
         <Image
-          src={Logo}
+          src={logo.url}
           alt="logo"
           width={120}
           height={25}

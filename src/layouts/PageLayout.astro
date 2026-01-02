@@ -1,6 +1,39 @@
 ---
 import Header from "@components/Header/index.astro";
 const { title } = Astro.props;
+import {list} from '@vercel/blob';
+
+const assets = await list({
+  prefix: 'balzbalz/images/',
+  token: import.meta.env.MICROSITE_FRA_READ_WRITE_TOKEN,
+});
+
+const bgs = assets.blobs
+  .filter(image => image.pathname.startsWith('balzbalz/images/bg'))
+  .map(image => {
+    const fileName = image.pathname.split('/').pop() || '';
+    let media = null;
+    
+    if (fileName.includes('bg-full')) {
+      media = '(min-width: 1280px)';
+    } else if (fileName.includes('bg-medium')) {
+      media = '(min-width: 768px)';
+    }
+    // bg-small gets no media query (default)
+    
+    return {
+      url: image.url,
+      name: image.pathname,
+      fileName,
+      media,
+      isWebp: fileName.endsWith('.webp'),
+      isFallback: fileName.includes('fallback'),
+    };
+  });
+
+const fallbackImage = bgs.find(bg => bg.isFallback) || bgs[0];
+const webpImages = bgs.filter(bg => bg.isWebp);
+
 ---
 
 <html lang="en">
@@ -19,22 +52,18 @@ const { title } = Astro.props;
     <title>{title} | Balz und Balz</title>
   </head>
   <body class="grid font-sans text-white 2xl:overflow-y-auto">
-    <picture class="col-[1/1] row-[1/1]">
-      <source
-        type="image/webp"
-        srcset="https://fgugxdhqeoiqjcrp.public.blob.vercel-storage.com/images/bg-9iTfhG8zwNcZCiaQ1zek0XL0uFhF73.webp"
-        media="(min-width: 1280px)"
-      />
-      <source
-        type="image/webp"
-        srcset="https://fgugxdhqeoiqjcrp.public.blob.vercel-storage.com/images/bg-medium-VikHqzXQKUz3x6znf8dtRj4CqwVA1U.webp"
-        media="(min-width: 768px)"
-      />
-      <source type="image/webp" srcset="https://fgugxdhqeoiqjcrp.public.blob.vercel-storage.com/images/bg-small-58ZoIVtwhZrZ0dpEnFX4egfhi0FHpq.webp" />
+    <picture class="col-[1/1] row-[1/1] w-full h-full fixed -z-10">
+      {webpImages.map(bg => 
+        bg.media ? (
+          <source type="image/webp" srcset={bg.url} media={bg.media} />
+        ) : (
+          <source type="image/webp" srcset={bg.url} />
+        )
+      )}
       <img
         class="bg h-full md:h-screen object-cover w-screen"
-        src="https://fgugxdhqeoiqjcrp.public.blob.vercel-storage.com/images/bg-ExY3jNMjcO0AjJDwXFWH7kRrvsVWbv.png"
-        alt="Astro"
+        src={fallbackImage.url}
+        alt="Background"
       />
     </picture>
 
