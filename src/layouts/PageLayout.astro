@@ -1,38 +1,12 @@
 ---
-import Header from "@components/Header/index.astro";
+import { Image } from "astro:assets";
 const { title } = Astro.props;
-import {list} from '@vercel/blob';
 
-const assets = await list({
-  prefix: 'balzbalz/images/',
+import { head } from '@vercel/blob';
+
+const logo = await head('balzbalz/images/wt-logo.svg', {
   token: import.meta.env.MICROSITE_FRA_READ_WRITE_TOKEN,
 });
-
-const bgs = assets.blobs
-  .filter(image => image.pathname.startsWith('balzbalz/images/bg'))
-  .map(image => {
-    const fileName = image.pathname.split('/').pop() || '';
-    let media = null;
-    
-    if (fileName.includes('bg-full')) {
-      media = '(min-width: 1280px)';
-    } else if (fileName.includes('bg-medium')) {
-      media = '(min-width: 768px)';
-    }
-    // bg-small gets no media query (default)
-    
-    return {
-      url: image.url,
-      name: image.pathname,
-      fileName,
-      media,
-      isWebp: fileName.endsWith('.webp'),
-      isFallback: fileName.includes('fallback'),
-    };
-  });
-
-const fallbackImage = bgs.find(bg => bg.isFallback) || bgs[0];
-const webpImages = bgs.filter(bg => bg.isWebp);
 
 ---
 
@@ -52,28 +26,17 @@ const webpImages = bgs.filter(bg => bg.isWebp);
     <title>{title} | Balz und Balz</title>
   </head>
   <body class="grid font-sans text-white 2xl:overflow-y-auto">
-    <picture class="col-[1/1] row-[1/1] w-full h-full fixed -z-10">
-      {webpImages.map(bg => 
-        bg.media ? (
-          <source type="image/webp" srcset={bg.url} media={bg.media} />
-        ) : (
-          <source type="image/webp" srcset={bg.url} />
-        )
-      )}
-      <img
-        class="bg h-full md:h-screen object-cover w-screen"
-        src={fallbackImage.url}
-        alt="Background"
-      />
-    </picture>
 
     <div class="col-[1/1] row-[1/1]">
       <div class="grid grid-columns-rootgrid grid-cols-root gap-4">
-        <header class="col-span-full grid grid-cols-subgrid">
-          <Header />
-        </header>
-        <main class="col-span-full grid grid-cols-subgrid pt-28 pb-28">
-          <slot />
+        <main class="col-span-full flex items-center justify-center h-screen px-8">
+          <Image
+            src={logo.url}
+            alt="logo"
+            width={400}
+            height={83}
+            class="invert"
+          />
         </main>
       </div>
     </div>

@@ -1,32 +1,12 @@
 ---
-import { Image } from "astro:assets";
 
-import { head } from '@vercel/blob';
 
-const logo = await head('balzbalz/images/wt-logo.svg', {
-  token: import.meta.env.MICROSITE_FRA_READ_WRITE_TOKEN,
-});
 
 ---
 
 <nav class="col-[5/-5] py-8">
   <ul class="flex flex-row items-end justify-center gap-x-8 gap-y-8">
     <li>
-      <a href="/impressum"> Impressum </a>
-    </li>
-    <li>
-      <a href="/">
-        <Image
-          src={logo.url}
-          alt="logo"
-          width={120}
-          height={25}
-          class="max-w-fit"
-        />
-      </a>
-    </li>
-    <li>
-      <a href="/datenschutz"> Datenschutz </a>
     </li>
   </ul>
 </nav>
